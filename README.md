@@ -2,9 +2,17 @@
 
 A generic, template-based doubly linked list implementation in C++ built as part of a Data Structures series.
 
+![C++](https://img.shields.io/badge/C%2B%2B-OOP-blue)
+![Platform](https://img.shields.io/badge/Platform-Windows-informational)
+![IDE](https://img.shields.io/badge/IDE-Visual%20Studio%202022-purple)
+
+---
+
 ## Description
 
 This project implements a fully functional doubly linked list using C++ templates, allowing it to work with any data type. Each node holds a value and two pointers — one to the next node and one to the previous — enabling efficient traversal in both directions.
+
+---
 
 ## Features
 
@@ -16,6 +24,8 @@ This project implements a fully functional doubly linked list using C++ template
 - Access or update items by index
 - Get list size and check if empty
 - Clear the entire list
+
+---
 
 ## Project Structure
 
@@ -30,12 +40,16 @@ This project implements a fully functional doubly linked list using C++ template
 │       └── main.cpp
 ```
 
+---
+
 ## Technologies
 
 - Language: C++
 - Paradigm: Object-Oriented Programming (OOP), Templates
 - IDE: Visual Studio 2022
 - Platform: Windows
+
+---
 
 ## How to Use
 
@@ -59,6 +73,8 @@ myList.PrintList();   // Output: 20 10 5
 cout << myList.Size() << endl;    // Output: 3
 cout << myList.isEmpty() << endl; // Output: 0
 ```
+
+---
 
 ## Topics
 
