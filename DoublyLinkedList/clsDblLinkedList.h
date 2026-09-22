@@ -1,6 +1,5 @@
 #pragma once
 #include <iostream>
-
 using namespace std;
 
 template <class T>
@@ -8,9 +7,17 @@ class clsDblLinkedList
 {
 protected:
 
-	short _Size;
+	int _Size = 0;
+
+	
 
 public:
+
+	~clsDblLinkedList() { Clear(); }
+
+	clsDblLinkedList() = default; //allows empty double-linked-list
+	clsDblLinkedList(const clsDblLinkedList&) = delete; //Disable shallow copy
+	clsDblLinkedList& operator = (const clsDblLinkedList&) = delete; //Disable copy assignment operator
 
 	class clsNode
 	{
@@ -56,7 +63,7 @@ public:
 	{
 		clsNode* TempHead = Head;
 
-		while (TempHead != NULL)
+		while (TempHead != nullptr)
 		{
 			if (TempHead->Value == Value)
 				return TempHead;
@@ -64,27 +71,27 @@ public:
 			TempHead = TempHead->Next;
 		}
 
-		return NULL;
+		return nullptr;
 	}
 
 	void InsertEnd(T Value)
 	{
-		clsNode* NewNode = NULL;
+		clsNode* NewNode = nullptr;
 		NewNode = new clsNode();
 
 		NewNode->Value = Value;
-		NewNode->Next = NULL;
+		NewNode->Next = nullptr;
 
-		if (Head == NULL)
+		if (Head == nullptr)
 		{
-			NewNode->Prev = NULL;
+			NewNode->Prev = nullptr;
 			Head = NewNode;
 		}
 		else
 		{
 			clsNode* Current = Head;
 
-			while (Current->Next != NULL)
+			while (Current->Next != nullptr)
 				Current = Current->Next;
 
 			NewNode->Prev = Current;
@@ -96,6 +103,9 @@ public:
 
 	void InsertAfter(clsNode* Node, T Value)
 	{
+		if (Node == nullptr)
+			return;
+
 		clsNode* NextNode = Node->Next;
 
 		clsNode* NewNode = new clsNode;
@@ -104,7 +114,7 @@ public:
 		NewNode->Prev = Node;
 
 		Node->Next = NewNode;
-		if (NextNode != NULL)
+		if (NextNode != nullptr)
 			NextNode->Prev = NewNode;
 
 		_Size++;
@@ -201,7 +211,7 @@ public:
 
 		clsNode* TempHead = Head;
 
-		while (TempHead != NULL && Index--)
+		while (TempHead != nullptr && Index--)
 			TempHead = TempHead->Next;
 
 		return TempHead;
@@ -211,8 +221,8 @@ public:
 	{
 		clsNode* Node = GetNode(Index);
 
-		if (Node == NULL)
-			return NULL;
+		if (Node == nullptr)
+			return T();
 
 		return Node->Value;
 	}
@@ -221,7 +231,7 @@ public:
 	{
 		clsNode* Node = GetNode(Index);
 
-		if (Node != NULL)
+		if (Node != nullptr)
 			Node->Value = Value;
 	}
 
@@ -229,7 +239,7 @@ public:
 	{
 		clsNode* Node = GetNode(Index);
 
-		if (Node != NULL)
+		if (Node != nullptr)
 			InsertAfter(Node, Value);
 	}
 
