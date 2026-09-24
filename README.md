@@ -115,6 +115,7 @@ int main()
 ### PowerShell (g++)
 
 ```
+cd DoublyLinkedList
 g++ -std=c++17 main.cpp -o dll
 .\dll
 ```
